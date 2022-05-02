@@ -1,22 +1,27 @@
-import "./App.css";
-import Home from "./component/Home";
-import Navbar from "./component/Navbar";
-import { Switch, Route } from "react-router-dom";
-import Products from "./component/Products";
-import Product from "./component/Product";
-import Cart from "./component/Cart";
-
+import Cart from './components/Cart';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Product from './components/Product';
+import Products from './components/Products';
+import Addcart from './components/Cart';
 function App() {
   return (
-    <>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/products" component={Products} />
-        <Route exact path="/products/:id" component={Product} />
-        <Route exact path="/cart" component={Cart} />
-      </Switch>
-    </>
+    <div className="App">
+      
+      
+      <Router>
+      <Navbar/>
+      
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/products" element={<Products/>}/>
+          <Route exact path="/products/:id" element={<Product/>}/>
+          <Route exact path="/cart" element={<Addcart/>}/>
+        </Routes>
+      </Router>
+     {/* <Cart/> */}
+    </div>
   );
 }
 
